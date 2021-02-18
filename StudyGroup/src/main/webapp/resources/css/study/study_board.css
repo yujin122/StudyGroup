@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+#form_cont {background-color: white; border: 1px solid #ebebeb; border-radius: 10px; padding: 10px 20px;}
+
+#form_cont h3 a img, #back_btn {width: 20px; height: auto; }
+
+/* 스터디 게시판 글쓰기 폼 */
+#write_form table {width :100%; text-align: left;}
+#write_form table td {padding : 1%;}
+#sboard_title, #write_form table textarea {width : 98%; padding: .5em .3em; border: 1px solid #999; border-radius: 0px; background-color: #ffffff;}
+#write_form table textarea {resize: none;} 
+#write_form label {display: inline-block; width: 18%; padding: .5em .3em; color: #757575; ; vertical-align: middle; background-color: white; cursor: pointer; border: 1px solid  #999;}
+#write_form input[type="file"] {position: absolute; width: 1px; height: 1px; padding: 0; margin: 0; border: 0; }
+
+
+/* 스터디 게시판 글쓰기 버튼 */
+#study_write_btn {text-align: center;}
+#study_write_btn input[type=submit], #study_write_btn input[type=button]{ width:50px; padding: 5px; margin-left: 10px;} 
+#study_write_btn input[type=submit]:hover, #study_write_btn input[type=button]:hover{cursor: pointer;}
+#file_name, #pre_file_name {font-size: 13px;}
+#pre_file_name a {text-decoration: none; color: black;}
+#pre_file_name a:hover {color: #FF5A5A; font-weight: bold;}
+.sboard_btn {border:1px solid #FF5A5A; background-color: #FF5A5A; color: white;}
+.sboard_cbtn {border:1px solid #FF5A5A; background-color: white; color: #FF5A5A; font-weight: bold;}
+
+
+/* 스터디 게시판 select 버튼 */
+#write_form select {width: 18%; padding: .5em .3em; border: 1px solid #999;
+   					border-radius: 0px; color: #757575; background-color: #ffffff}
+#write_form select:focus {outline: none;}
+#write_form input:focus {outline: none;}
+#write_form textarea {outline: none; background-color: #ffffff;}
+
+  					
+/* 스터디 게시판 상세페이지 */
+#detail_form h4{margin:0; padding-bottom: 10px;} 
+#detail_form input:focus {outline: none;} 
+#detail_form textarea {outline: none;}
+.unsolved { font-size: 20px; color: red; vertical-align: center; font-weight: normal;}
+.solved {color: green; vertical-align: center; font-weight: normal;}
+
+.detail_box tr:nth-child(1) td:nth-child(4) {width: 10%;}
+#dropdown_bar {width: 40%; display: inline-block;}
+#dropdown {margin-top: 25px; margin-left: 23px; border: 1px solid lightgray; display: none; position: absolute; background-color: white; width: 53px; padding: 5px 0;}
+#dropdown a {padding: 5px 12px; text-decoration: none; color: black; font-size: 15px; font-weight: normal;}
+#dropdown a:hover {background-color: #e8e8e8;}
+
+.detail_box {width :100%; margin-bottom: 15px;}
+.detail_box img {width: 15%; float: right; margin-right: 10px;}
+.detail_box tr:nth-child(2) td {font-size: 20px; padding: 10px 0 5px 0; font-weight: bold;}
+.detail_box tr:nth-child(2) td:nth-child(1) {font-size: 18px; color:#757575; width: 5%;}
+.detail_box tr:nth-child(2) td:nth-child(2) {width: 85%;}
+.detail_box tr:nth-child(3) td:nth-child(1) span {font-size: 13px; color:#757575; padding-right: 15px;}
+.detail_box tr:nth-child(4) td {padding: 10px 0;}
+.detail_box textarea {width : 95%; background-color:#ffffff; padding: 10px; border: 1px solid #c4c4c4; border-radius: 0px; resize: none;}
+#file_down td a{text-decoration: none; color: black;}
+#file_down td a:hover{text-decoration: underline; color: #FF5A5A}
+#tip_question {text-align: right;}
+#tip_question img {width: 130px;}
+#file_list {font-weight: bold;}
+#back_btn {float: left;}
+
+/* 스터디 게시판 상세페이지 댓글 버튼 */
+#comm {width:87%; height:20px; border: 1px solid lightgray; padding:8px; font-size:13px; background-color: #ffffff; color: #000000;}
+#comm_btn {height:38px; border: 0; background-color: #ED6560; color: #ffffff; width:50px; padding: 5px; font-weight: bolder;}
+.board_comm { padding: 10px; margin-bottom: 30px;}
+.comm_box {width : 100%; border-collapse: collapse;}
+.comm_box tr:nth-child(1) td:nth-child(1) {width: 89%; font-size: 14px; font-weight:bolder; color:#757575; white-space: nowrap; }
+.comm_box tr:nth-child(2) td:nth-child(1) {font-size: 14px; color:#757575; white-space: nowrap; padding: 10px 0;}
+.comm_box tr:nth-child(3) td:nth-child(1) {font-size: 12px; color:#757575; padding: 5px 0; border-bottom: 1px solid lightgray; }
+.comm_box input{font-size: 14px; border:0; padding:0; color:#757575; background-color: #ffffff;}
+.comm_box input:hover {color: #ED6560;}
+.comm_update {vertical-align: middle;}
+.comm_update textarea {width: 87%; border: 1px solid lightgray; height: 30px; padding: 5px; resize: none; vertical-align: middle;}
+.comm_update button {height: 42px; width: 60px; vertical-align: middle;}
+.comm_update textarea:focus, .comm_update button:focus, #comm_btn:focus, .comm_box input:focus {outline: none;}

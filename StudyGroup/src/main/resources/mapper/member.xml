@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+<mapper namespace ="com.study.model.MemberDAO">
+ 	
+ 	<select id="loginIdCheck" parameterType="String" resultType="int">
+ 		select count(*) from member where mem_id = #{mem_id}
+ 	</select>
+ 	
+ 	<select id="login" parameterType="com.study.model.MemberDTO" resultType="int">
+ 		select count(*) from member where mem_id = #{mem_id} and mem_pwd = #{mem_pwd}
+ 	</select>
+ 	
+	<select id="member_find_id" parameterType="String" resultType="com.study.model.MemberDTO">
+		<![CDATA[
+			select * from member where mem_phone = #{number}
+		]]>
+	</select>
+		
+	<select id="member_find_pw" parameterType="String" resultType="com.study.model.MemberDTO">
+		<![CDATA[
+			select * from member where mem_id = #{mem_id}
+		]]>
+	</select>	
+	
+	<insert id="naver_info" parameterType="com.study.model.MemberDTO">
+		INSERT INTO member
+		VALUES (#{mem_name}, #{mem_id}, 'naver', #{mem_nickname}, '', '', #{mem_phone}, #{mem_email}, '' )
+	</insert>
+	
+	<select id="idCheck" parameterType="String" resultType="int">
+		select count(mem_id)
+		from member
+		where mem_id = #{mem_id}
+	</select>
+	
+	<select id="phoneCheck" parameterType="String" resultType="int">
+		select count(mem_phone)
+		from member
+		where mem_phone = #{mem_phone}
+	</select>
+	
+	<insert id="member_sign_up" parameterType="com.study.model.MemberDTO">
+		insert into member
+		values(#{mem_name}, #{mem_id}, #{mem_pwd}, #{mem_nickname}, #{mem_age}, #{mem_addr}, #{mem_phone}, #{mem_email}, #{mem_img})
+	</insert>
+	
+	<select id="editphoneCheck" parameterType="String" resultType="int">
+		select count(mem_phone)
+		from member
+		where mem_phone = #{mem_phone}
+	</select>
+	
+	<select id="edit_cont" resultType="com.study.model.MemberDTO">
+   		select * from member where mem_id = #{mem_id}
+   </select>
+	
+	<update id="member_edit" parameterType="com.study.model.MemberDTO">
+		update member set mem_name = #{mem_name}, mem_pwd = #{mem_pwd}, 
+		mem_nickname = #{mem_nickname}, mem_age = #{mem_age}, mem_addr = #{mem_addr}, mem_phone = #{mem_phone}, 
+		mem_email = #{mem_email}, mem_img = #{mem_img} where mem_id = #{mem_id}
+	</update>
+ </mapper>

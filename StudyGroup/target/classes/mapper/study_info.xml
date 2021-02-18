@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.StudyInfoDAO">
+	
+	<select id="studyCnt" parameterType="Map" resultType="int">
+		SELECT COUNT(*)
+		FROM STUDY_MAIN
+		WHERE STUDY_TYPE LIKE #{mento} AND STUDY_CATEGORY LIKE #{cate}
+	</select>
+	
+	<select id="studyAllList" parameterType="Map" resultType="com.study.model.StudyInfoDTO">
+		<![CDATA[
+			SELECT *
+			FROM (SELECT STUDY_MAIN.*, ROW_NUMBER() OVER(ORDER BY STUDY_NUM DESC) RNUM
+			    FROM STUDY_MAIN WHERE TO_CHAR(STUDY_EDATE, 'YY/MM/DD') >= TO_CHAR(SYSDATE, 'YY/MM/DD') and STUDY_TYPE LIKE #{mento} AND STUDY_CATEGORY LIKE #{cate})
+			WHERE RNUM >= #{startNo} AND RNUM <= ${endNo}
+		]]>
+	</select>
+	
+	<select id="mainStudyMax" resultType="int">
+		SELECT MAX(STUDY_NUM) 
+		FROM STUDY_INFO
+	</select>
+	
+	<insert id="mainStudyInsert" parameterType="com.study.model.StudyInfoDTO">
+		INSERT INTO STUDY_INFO
+		VALUES(#{study_num}, #{study_name}, #{study_category}, #{study_type}, #{study_short_intro}, #{study_long_intro}, #{study_hashtag}, #{study_img}, #{study_people}, #{study_sdate}, #{study_edate})
+	</insert>
+	
+	<select id="studyCont" parameterType="int" resultType="com.study.model.StudyInfoDTO">
+		SELECT SI.*, MEM.MEM_NICKNAME, MEM.MEM_IMG
+		FROM STUDY_MAIN SI, STUDY_MEMBER SM, MEMBER MEM
+		WHERE SI.STUDY_NUM = #{study_num} AND SI.STUDY_NUM = SM.STUDY_MEM_NUM AND SM.STUDY_MEM_ID = MEM.MEM_ID AND SM.STUDY_MEM_POSITION = 'L'
+	</select>
+	
+	<update id="updateStudyInfo" parameterType="com.study.model.StudyInfoDTO">
+		UPDATE STUDY_INFO
+		SET STUDY_NAME = #{study_name}, STUDY_CATEGORY = #{study_category}, STUDY_TYPE = #{study_type}, STUDY_SHORT_INTRO = #{study_short_intro}, STUDY_LONG_INTRO = #{study_long_intro},
+		STUDY_HASHTAG = #{study_hashtag}, STUDY_IMG = #{study_img}, STUDY_PEOPLE = #{study_people}, STUDY_SDATE = #{study_sdate}, STUDY_EDATE = #{study_edate}
+		WHERE STUDY_NUM = #{study_num}
+	</update>
+	
+	<select id="studyPeople" parameterType="int" resultType="com.study.model.StudyInfoDTO">
+		SELECT STUDY_PEOPLE FROM STUDY_INFO WHERE STUDY_NUM = #{num }
+	</select>
+	
+	<select id="MyStudy" resultType="com.study.model.StudyInfoDTO">
+		SELECT SM.*
+		FROM STUDY_MAIN SM JOIN STUDY_MEMBER MEM
+		ON SM.STUDY_NUM = MEM.STUDY_MEM_NUM
+		WHERE MEM.STUDY_MEM_ID = #{id }
+  	</select>
+  	
+  	<select id="WaitStudy" resultType="com.study.model.StudyInfoDTO">
+  		SELECT SM.*
+  		FROM STUDY_MAIN SM JOIN STUDY_JOIN SJ
+  		ON SM.STUDY_NUM = SJ.STUDY_NUM
+  		WHERE SJ.STUDY_MEM_ID = #{id }
+  	</select>
+  	
+  	<select id="getStudyInfo" parameterType="int" resultType="com.study.model.StudyInfoDTO">
+  		SELECT STUDY_NAME, STUDY_IMG
+  		FROM STUDY_INFO
+  		WHERE STUDY_NUM = #{study_num}
+  	</select>
+  	
+  	<delete id="deleteInfo" parameterType="int">
+  		DELETE FROM STUDY_INFO
+  		WHERE STUDY_NUM = #{study_num}
+  	</delete>
+  	
+  	<select id="delStudyCont" parameterType="int" resultType="com.study.model.StudyInfoDTO">
+  		SELECT *
+  		FROM STUDY_INFO
+  		WHERE STUDY_NUM = #{study_num}
+  	</select>
+</mapper>

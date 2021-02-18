@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+/* todo 레이어팝업 */
+#mask { position:absolute; z-index:9000; background-color:#000; display:none; left:0; top:0; }
+#popup {display:none; position:absolute; left:30%; top: 14%; width:400px; height:500px; background-color:#fff; z-index:10000;
+		border-radius: 15px 15px 15px 15px;}
+.btn_red,#popup button:focus{outline-style:none; cursor:pointer; }
+#popup input[type=text] {margin:0 10px 0 25px; width:300px;}
+#popup input[type=text]:focus {outline-color: #FF5A5A}
+#popup span {margin-left:20px; font-size:30px; }
+#popup_btn {padding-left: 290px; margin: 10px;  }
+#popup_todo { width: 360px; height: 250px; border: 1px solid #5d5d5d; overflow:auto; overflow-x:hidden; margin: 0 0 20px 20px;}
+#popup_todo table{width:100%; border-spacing: 0; }
+#popup_todo table tr th {border-bottom: 1px solid #5d5d5d; text-align: left;}
+#popup_todo table tr td del {font-style: italic; color: #808080; }
+.head { margin: 0 0 5px 0; height: 40px;  padding: 0 0 35px 0; background:  #FF5A5A; border-radius: 15px 15px 0px 0px;}
+.close { float:right; background-color: transparent !important; border: none; width: 40px; height: 40px; cursor: pointer;}
+.close img{width:100%;}
+
+#todo_td {width: 350px;}
+#todo_btn_span{margin:0 0 0 210px; }
+#todo_td button {float: right; background-color: transparent !important; border: none; width: 40px; height: 40px; cursor: pointer; }
+#todo_td button img{width:100%; }
+#popup_sub {margin: 0 0 0 130px;}
+
+/* 스터디 관리 */
+.subtitle {font-size:24px; text-align:left;}
+.subtitle_span {display:inline-block; padding: 20px 0 10px 0; }
+#mTable button:focus{ cursor: pointer; outline-style: none;}
+#mTable {width:100%; text-align:center;  border-spacing:0 10px;}
+#mTable button:focus{ cursor: pointer; }
+#mTable tr td {width: 530px;}
+#todo {padding-left: 5px;}
+#todo table, #weekly table {width: 100%; border-spacing: 0;}
+#todo {float:left; width: 350px; height:150px; border: 1px solid #c0c0c0; overflow:auto; overflow-x:hidden;}
+#weekly {float:left; width: 530px; height:150px; border: 1px solid #c0c0c0; overflow:auto; overflow-x:hidden;}
+#todo table {text-align: left;}
+#weekly table {text-align: center;}
+#weekly table tr td {padding: 3px 0;}
+#weekly table tr th {text-align: center; border-bottom: 1px solid lightgray; padding: 3px 0;}
+#weekly table tr td:nth-child(1) {width: 25%; color: #4167fe;}
+#weekly table tr td:nth-child(2) {width: 30%;}
+#weekly table tr td:nth-child(3) {width: 20%;}
+#weekly table tr td h4 {color: black;}
+.item_list tr td {width: 25%;} 
+.item_list table{border: 1px solid lightgray; border-radius: 5px; width: 23%; padding: 10px 5px; display: inline-block; margin: 7px;}
+.item_list table:hover {cursor: pointer;}
+.item_list table tr:nth-child(1) td:nth-child(1) {width: 1%;}
+.item_list table tr:nth-child(1) td:nth-child(1) img{width: 100px; height: 100px;}
+.item_list table tr:nth-child(1) td:nth-child(2) {height: 25px;}
+.item_list table tr:nth-child(1) td:nth-child(2) img {width: 25px; height: 25px;}
+.item_list table tr:nth-child(2) td:nth-child(1) {font-weight: bold; vertical-align: top;}  
+.item_list table tr:nth-child(4) td:nth-child(1) {font-size: 15px; height: 75px;}
+.item_list table tr:nth-child(5) td:nth-child(1) {font-size: 13px; color: #6575e7; height: 75px;}
+.item_list table tr:nth-child(6) td:nth-child(1) {font-size: 12px; color: #7a7a7a; height: 30px;}

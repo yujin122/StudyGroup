@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.study.model.TodoDAO">
+  	<select id="todoList" resultType="com.study.model.TodoDTO">
+  		SELECT * FROM todo
+  		WHERE mem_id=#{id}
+  		ORDER BY todo_num
+  	</select>
+  	<insert id="todoinsert" parameterType="Map" >
+  		INSERT INTO todo
+  		VALUES(#{mem_id} , TODO_SEQ.NEXTVAL, #{todo_text}, 'N')
+  	</insert>
+  	<delete id="todoDel" parameterType="java.util.ArrayList">
+  		DELETE todo
+  		WHERE todo_num IN(
+  			<foreach collection="list" item="item" index="index" separator=",">
+  				${item}
+  			</foreach>
+  		)
+  	</delete>
+  	<update id="todoFinish" parameterType="java.util.ArrayList">
+  		UPDATE todo
+  		SET todo_state='F'
+  		WHERE todo_num IN(
+  			<foreach collection="list" item="item" index="index" separator=",">
+  				${item}
+  			</foreach>
+  		)
+  	</update>
+  </mapper>

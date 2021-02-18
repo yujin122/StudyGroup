@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+#form_cont {background-color: white; border: 1px solid #ebebeb; border-radius: 10px; padding: 10px 20px;}
+
+#form_cont h3, #form_cont h3 a { vertical-align: middle;}
+#form_cont h3 a {padding-right:8px;}
+#form_cont h3 a img {width: 20px; height: auto; }
+#manage_bar li:nth-child(1) a {color: #ED6560}
+
+/*관리 메인*/
+#form_cont h2{padding-left: 10px;}
+#form_cont ul {padding:0; margin:0 auto; width: 97%; }
+#form_cont ul li {list-style:none; padding: 15px 0 15px 30px; border-radius: 5px; border: 0;}
+#form_cont ul li:hover {background-color: #fff0f0;}
+#form_cont li a { text-decoration:none; color:#000000; font-size: 17px;}
+#form_cont hr {border-top: 1px solid #e5e5e5; width: 97%;}
+
+/*가입 승인 & 회원 관리*/
+#memberFrame {padding:0 30px 0 30px;}
+#memberFrame table {width: 100%; text-align: left;}
+#leader_tb tr:nth-child(1) td {padding: 5px 0 10px 0;}
+.cancle_td {width: 45px;}
+.img_td {width: 55px;}
+#memberFrame table img {width: 50px; height: 50px; border-radius: 50px; border:0;}
+#division {width:99%; text-align:center; background-color:#F4F4F4; margin: 20px 0 20px 0;}
+.cancle_td input {background-image: url('../../img/cancle.png'); background-repeat: no-repeat; background-position: center; background-size: cover; width: 30px; height: 30px; border: 0;}
+.ok_btn {width: 10%;}
+.ok_btn input {width: 50px; height: 40px;}
+.cancle_td input:hover, .ok_btn input:hover {cursor:pointer;} 
+
+/* 스터디 정보 수정 */
+#study_info_form table {width: 100%; text-align: left;}
+#study_info_form table tr {padding: 5px;}
+#study_info_form table tr th {font-size: 17px; padding-top: 20px;}
+#study_info_form table tr th span {color: #FF5A5A}
+#study_info_formtable tr td {padding: 5px 0;}
+#study_info_form table tr td input[type=text] {width: 90%; height: 45px; border-radius: 5px; border: 1px solid lightgray} 
+#study_info_form table tr td input[type=text]:focus {outline-color: #FF5A5A;}
+#study_info_form table tr td p {font-size: 13px; margin: 3px 0;}
+#study_info_form table tr td select {width: 20%; height: 35px; border: 1px solid lightgray; border-radius: 5px;}
+#study_info_form table tr td textarea {width: 88%; height: 150px;  resize: none; border: 1px solid lightgray; padding: 10px;}
+#study_info_form table tr td input[type=date]:focus, .study_form table tr td input[type=number]:focus, .study_form table tr td select:focus, .study_form table tr td textarea:focus {outline-color: #FF5A5A}
+#study_info_form table tr td input[type=number] {width: 12%; border-radius: 5px; border: 1px solid lightgray} 
+#study_info_form table tr td input[type=radio] {margin: 5px}
+#study_frm_btn {text-align: right; padding: 50px 0 20px 0;}
+#study_frm_btn input[type=submit], #study_frm_btn input[type=button]{width: 30%; height: 50px; margin: 10px 0;} 
+#study_frm_btn input[type=submit]:hover, #study_frm_btn input[type=button]:hover{cursor: pointer;} 
+#name_limit, #short_limit, #hash_limit {font-size: 14px; color: blue; float: right; margin-right: 10%;}
+
+/* 스터디 정보 */
+#study_info {text-align: center;}
+#study_info h4 {text-align: left;}
+#study_info img{width: 150px; height: 150px; margin-top: 20px; border-radius: 5px; border: 0;}
+#study_info table {width: 70%; margin: 25px auto;}
+#study_info table tr td {padding: 10px; text-align: left;}
+#study_info table tr th {width: 45%;}
+
+/* 스터디 일정 관리 */
+#manage_cal table {width: 100%; border-spacing: 0;}
+#manage_cal table tr:nth-child(1) td {text-align: right; padding: 10px 0;}
+#manage_cal table th {padding: 5px 0; background-color: #FF5A5A; color:white;}
+#manage_cal table tr td {text-align: center; padding: 7px 0;}
+#manage_cal table tr th:nth-child(1) {width: 5%;}
+#manage_cal table tr th:nth-child(3) {width: 45%;}
+#manage_cal table tr td a {text-decoration: none; color:black;}
+#manage_cal table tr td input[type=button] {background-image: url('../../img/cal_plus.png'); background-repeat: no-repeat; background-position: center; background-size: cover; width: 25px; height: 25px; border: 0;} 
+#manage_cal table tr td input[type=submit] {background-image: url('../../img/cal_minus.png'); background-repeat: no-repeat; background-position: center; background-size: cover; width: 25px; height: 25px; border: 0; margin-left: 5px;}
+#manage_cal table tr td input[type=submit]:focus, #manage_cal table tr td input[type=button]:focus {outline: none;} 
+.popup {display: none; position: fixed; top:0; left:0; width: 100%; height:100%;}
+.popupBg {position:absolute; top:0; left:0; width: 100%; height: 100%; background-color: #262626; opacity: 50%;}
+#popup_cal_cont {position: absolute; top: 22%; left: 40%; width: 300px; background-color: white;}
+#popup_cal_cont h2 {background-color: #FF5A5A; padding: 10px; color: white; margin: 0;}
+#popup_cal_cont h3 {margin: 0; padding: 10px; }
+#popup_cal_cont table {width:100%; margin-top: 10px;} 
+#popup_cal_cont table tr th {width: 25%;}
+#popup_cal_cont table tr th, #popupCont table tr td {padding: 5px 0;}
+#popup_cal_cont table tr:nth-child(4) th {text-align: left; padding-left: 20px}
+#popup_cal_cont table tr td textarea {width: 82%; height: 90px; resize: none; margin-left: 15px; border: 1px solid lightgray; border-radius: 5px; background-color: white; padding: 5px;}
+#popup_cal_cont table tr td textarea:focus {outline: none;}
+#popupBtn {width: 100%; text-align: right; padding-bottom: 15px;}
+#popupBtn button {width: 50px; height: 30px; margin-right: 28px; }
+
+#popup_cal_insert {position: absolute; top: 22%; left: 40%; width: 300px; background-color: white;}
+#popup_cal_insert h2 {background-color: #FF5A5A; padding: 10px; color: white; margin: 0;}
+#popup_cal_insert table {width:100%; padding: 10px;}
+#popup_cal_insert table tr th {text-align: left;}
+#popup_cal_insert table tr td {padding:5px 0; padding-left: 5px;}
+#popup_cal_insert table tr td input {background-color: white; border: 1px solid lightgray; border-radius: 5px;} 
+#popup_cal_insert table tr td input[type=text] {width: 95%; padding:5px 0;}
+#popup_cal_insert table tr td input[type=datetime-local] {width: 44%;}
+#popup_cal_insert table tr td textarea {width: 91%; padding: 5px; resize: none; height: 100px; border: 1px solid lightgray; border-radius: 5px; background-color: white;}
+#popup_cal_insert table tr td input:focus {outline-color: #FF5A5A}
+#insert_Btn {width: 100%; padding-bottom: 10px; text-align: center;}
+#insert_Btn input[type=submit], #insert_Btn input[type=button] {width: 55px; height: 30px; margin: 0 5px;}
+
+
+
+

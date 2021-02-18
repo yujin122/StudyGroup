@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.top_box {width: 100%; background-color: white; border: 1px solid #ebebeb; border-radius: 10px; border-spacing: 0; padding: 10px 20px; margin-bottom: 10px;}
+.top_box:hover {cursor: pointer;}
+.top_box tr:nth-child(1) td {border-bottom: 1px solid lightgray; font-size: 20px; padding: 13px 0; font-weight: bold;}
+.top_box tr:nth-child(1) td:nth-child(1) {font-size: 18px; color:#757575; width: 5%;}
+.unsolved { font-size: 20px; color: red; vertical-align: center; font-weight: normal;}
+.solved {color: green; vertical-align: center; font-weight: normal;}
+.top_box tr:nth-child(2) td:nth-child(1) {height: 80px; font-size: 16px; text-align: left;}
+.top_box tr:nth-child(3) td {height: 30px; font-size: 14px; color:#757575;}
+.top_box tr:nth-child(3) span:nth-child(3), .top_box tr:nth-child(3) span:nth-child(4) {float: right;}
+.top_box tr:nth-child(3) span{padding-right: 5px;}
+.top_box tr:nth-child(3) span:nth-child(3) img, .top_box tr:nth-child(3) span:nth-child(4) img{width: 15px; height: 15px; margin-right: 5px;}

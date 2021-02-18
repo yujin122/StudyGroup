@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.StudyMemberDAO">
+	<insert id="insertStudyMember" parameterType="com.study.model.StudyMemberDTO" >
+		INSERT INTO STUDY_MEMBER
+		VALUES(#{study_mem_num}, #{study_mem_id}, #{study_mem_position})
+	</insert>
+	
+	<select id="searchStudyMember" parameterType="map" resultType="int">
+		SELECT COUNT(*)
+		FROM STUDY_MEMBER
+		WHERE STUDY_MEM_NUM = #{study_mem_num} AND STUDY_MEM_ID = #{study_mem_id}
+	</select>
+	
+	<select id="getMemberPosition" parameterType="map" resultType="String">
+		SELECT STUDY_MEM_POSITION
+		FROM STUDY_MEMBER
+		WHERE STUDY_MEM_NUM = #{study_num} AND STUDY_MEM_ID= #{mem_id}
+	</select>
+	
+	<delete id="deleteStudyMember" parameterType="int">
+		DELETE FROM STUDY_MEMBER
+		WHERE STUDY_MEM_NUM = #{study_num}
+	</delete>
+</mapper>

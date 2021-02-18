@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.study.model.TipCheckDAO">
+  	<select id="tipCheck" parameterType="map" resultType="int">
+  		SELECT COUNT(TIP_MEM_ID)
+  		FROM TIP_CHECK
+  		WHERE TIP_SBOARD_NUM = #{num} AND TIP_MEM_ID  = #{mem_id}
+  	</select>
+  	
+  	<insert id="tipInsert" parameterType="map">
+  		INSERT INTO TIP_CHECK
+  		VALUES(#{num}, #{mem_id})
+  	</insert>
+  	
+  	<delete id="tipDelete" parameterType="map">
+  		DELETE FROM TIP_CHECK
+  		WHERE TIP_SBOARD_NUM = #{num} AND TIP_MEM_ID  = #{mem_id}
+  	</delete>
+  	
+  	<delete id="deleteTipAll" parameterType="int">
+  		DELETE FROM TIP_CHECK
+  		WHERE TIP_SBOARD_NUM = #{study_num}
+  	</delete>
+</mapper>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.study.model.StudyJoinDAO">
+	<select id="searchStudyMem" parameterType="com.study.model.StudyJoinDTO" resultType="int">
+		SELECT COUNT(*)
+		FROM STUDY_JOIN
+		WHERE STUDY_NUM = #{study_num} AND STUDY_MEM_ID = #{study_mem_id}
+	</select>
+	
+	<insert id="insertStudyJoin" parameterType="com.study.model.StudyJoinDTO">
+		INSERT INTO STUDY_JOIN
+		VALUES(#{study_num}, #{study_mem_id})
+	</insert>
+	
+	<delete id="deleteJoinAll" parameterType="int">
+		DELETE FROM STUDY_JOIN
+		WHERE STUDY_NUM = #{study_num}
+	</delete>
+</mapper>

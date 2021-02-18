@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.StudyCategoryDAO">
+	<select id="cateAllList" resultType="com.study.model.StudyCategoryDTO">
+		select * from study_category order by study_cate_num
+	</select>
+	
+	<select id="cateCont" parameterType="int" resultType="com.study.model.StudyCategoryDTO">
+		SELECT * 
+		FROM STUDY_CATEGORY
+		WHERE STUDY_CATE_NUM = #{study_category}
+	</select>
+</mapper>

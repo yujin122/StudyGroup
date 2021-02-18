@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+<mapper namespace="com.spring.model.StudyManageDAO">
+	
+	<select id="SMemList"  parameterType="int" resultType="com.study.model.StudyManageDTO">
+		select * from study_member_view where study_mem_num=#{num } and study_mem_position = 'M'
+	</select>
+	
+	<select id="leaderInfo"  parameterType="int" resultType="com.study.model.StudyManageDTO">
+		select * from study_member_view where study_mem_num =#{num } and study_mem_position = 'L'
+	</select>
+	
+	<select id="WMemList"  parameterType="int" resultType="com.study.model.StudyManageDTO">
+		select * from study_join_view where study_num =#{num }
+	</select>
+	
+	<select id="countMember"  parameterType="int" resultType="com.study.model.StudyManageDTO">
+		select count(*) as countMember from study_member where study_mem_num=#{num } and study_mem_position = 'M'
+	</select>
+	
+	<select id="countLeader" parameterType="int" resultType="com.study.model.StudyManageDTO">
+		select count(*) as countLeader from study_member where study_mem_num =#{num } and study_mem_position = 'L'
+	</select>
+	
+	<delete id="deleteMember" parameterType="Map">
+		DELETE FROM STUDY_MEMBER WHERE STUDY_MEM_ID=#{id } AND STUDY_MEM_NUM =#{num }
+	</delete>
+	
+	<delete id="rejectJoin" parameterType="Map">
+		DELETE STUDY_JOIN WHERE STUDY_MEM_ID=#{id } AND STUDY_NUM=#{num }
+	</delete>
+	
+	<insert id="addMember" parameterType="Map">
+		INSERT INTO STUDY_MEMBER VALUES (#{num }, #{id }, 'M')
+	</insert>
+</mapper>

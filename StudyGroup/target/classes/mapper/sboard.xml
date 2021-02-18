@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.SboardDAO">
+
+	<select id="list" parameterType="map" resultType="com.study.model.StudyListDTO">
+		<![CDATA[
+		select * from study_list_view where sboard_menu like #{category} and study_num = #{num} order by sboard_regdate desc
+		]]>	
+	</select>
+	
+	<insert id="write" parameterType="com.study.model.SboardDTO">
+		<![CDATA[
+		insert into study_board values(sboard_seq.nextval, #{study_num}, #{sboard_menu}, #{sboard_title}, #{sboard_cont},
+		#{sboard_writer}, sysdate, default, default)
+		]]>	
+	</insert>
+	
+	<select id="getSboardCont" parameterType="int" resultType="com.study.model.StudyListDTO">
+		<![CDATA[
+		select * from study_list_view where sboard_num = #{num}
+		]]>	
+	</select>
+	
+	<select id="cont" parameterType="int" resultType="com.study.model.SboardDTO">
+		<![CDATA[
+		select * from study_board where sboard_num = #{num}
+		]]>	
+	</select>
+	
+	<update id="hit" parameterType="int">
+		<![CDATA[
+		update study_board set sboard_hit = sboard_hit + 1 where sboard_num = #{num}
+		]]>	
+	</update>
+	
+	<update id="edit" parameterType="com.study.model.SboardDTO">
+		<![CDATA[
+		update study_board set sboard_title = #{sboard_title}, sboard_cont = #{sboard_cont}, 
+			sboard_menu = #{sboard_menu} where sboard_num = #{sboard_num}
+		]]>
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		<![CDATA[
+		delete study_board where sboard_num = #{sboard_num}
+		]]>
+	</delete>
+	
+	<update id="updateHelp" parameterType="map">
+		UPDATE STUDY_BOARD
+		SET SBOARD_HELP = #{txt}
+		WHERE SBOARD_NUM = #{num}
+	</update>
+	
+	<select id="helpCheck" parameterType="int" resultType="String">
+		SELECT SBOARD_HELP
+		FROM STUDY_BOARD
+		WHERE SBOARD_NUM = #{num}
+	</select>
+	
+	<delete id="deleteAllBoard" parameterType="int">
+		DELETE FROM STUDY_BOARD
+		WHERE STUDY_NUM = #{num}
+	</delete>
+	
+	<select id="getSboardNum" parameterType="int" resultType="int">
+		SELECT SBOARD_NUM
+		FROM STUDY_BOARD
+		WHERE STUDY_NUM = #{study_num}
+	</select>
+</mapper>

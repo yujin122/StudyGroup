@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.study.model.StudyCalendarDAO">
+	<select id="getStudyCal" parameterType="int" resultType="com.study.model.StudyCalendarDTO">
+		SELECT *
+		FROM STUDY_CALENDAR
+		WHERE STUDY_NUM = #{study_num}
+		ORDER BY SCAL_SDATE
+	</select>
+	
+	<select id="getStudyCalCont" parameterType="int" resultType="com.study.model.StudyCalendarDTO">
+		SELECT *
+		FROM STUDY_CALENDAR
+		WHERE SCAL_NUM = #{scal_num}
+	</select>
+	
+	<insert id="insertStudyCal" parameterType="com.study.model.StudyCalendarDTO">
+		INSERT INTO STUDY_CALENDAR
+		VALUES(#{scal_num}, #{study_num}, #{scal_title}, TO_DATE(#{scal_sdate}, 'YYYY-MM-DD HH24:MI'), TO_DATE(#{scal_edate}, 'YYYY-MM-DD HH24:MI'), #{scal_place}, #{scal_cont})
+	</insert>
+	
+	<select id="calMaxNum" resultType="int">
+		SELECT MAX(SCAL_NUM)
+		FROM STUDY_CALENDAR
+	</select>
+	
+	<select id="calCnt" resultType="int">
+		SELECT COUNT(*)
+		FROM STUDY_CALENDAR
+	</select>
+	
+	<delete id="deleteStudyCal" parameterType="int">
+		DELETE FROM STUDY_CALENDAR
+		WHERE SCAL_NUM = #{scal_num}
+	</delete>
+	
+	<select id="weekly" parameterType="String" resultType="com.study.model.StudyCalendarDTO">
+		<![CDATA[
+         SELECT *
+         FROM study_weekly
+         WHERE study_mem_id = #{session_id}
+         AND SUBSTR(scal_sdate,1,2) = SUBSTR(SYSDATE,1,2)
+         AND ((TO_CHAR(scal_sdate, 'IW') <= TO_CHAR(SYSDATE, 'IW')AND TO_CHAR(scal_edate, 'IW') >= TO_CHAR(SYSDATE, 'IW'))
+         OR TO_CHAR(scal_sdate, 'IW') = TO_CHAR(SYSDATE, 'IW'))
+      ]]>
+	</select>
+	
+	<delete id="deleteAllCal" parameterType="int">
+		DELETE STUDY_CALENDAR
+		WHERE STUDY_NUM = #{study_num}
+	</delete>
+</mapper>

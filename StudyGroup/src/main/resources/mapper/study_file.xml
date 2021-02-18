@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="com.study.model.StudyFileDAO">
+  	<insert id="fileInsert" parameterType="map">
+  		INSERT INTO STUDY_FILE
+  		VALUES((SELECT MAX(SBOARD_NUM) FROM STUDY_BOARD), #{new}, #{original}, default)
+  	</insert>
+  	
+  	<select id="getFile" parameterType="int" resultType="com.study.model.StudyFileDTO">
+  		SELECT *
+  		FROM STUDY_FILE
+  		WHERE STUDY_BOARD_NUM = #{sboard_num} AND FILE_CHECK = 0
+  	</select>
+  	
+  	<delete id="fileDelete">
+  		DELETE FROM STUDY_FILE
+  		WHERE FILE_CHECK = 1
+  	</delete>
+  	
+  	<update id="fileUpdate" parameterType="String">
+  		UPDATE STUDY_FILE
+  		SET FILE_CHECK = 1
+  		WHERE BOARD_IMG_NEW = #{fileName}
+  	</update>
+  	
+  	<select id="getDelFiles" resultType="com.study.model.StudyFileDTO">
+  		SELECT *
+  		FROM STUDY_FILE
+  		WHERE FILE_CHECK = 1
+  	</select>
+  	
+  	<insert id="fileUpdateInsert" parameterType="map">
+  		INSERT INTO STUDY_FILE
+  		VALUES(#{num}, #{new}, #{original}, default)
+  	</insert>
+  	
+  	<update id="fileCancleUpdate" parameterType="int">
+  		UPDATE STUDY_FILE
+  		SET FILE_CHECK = 0
+  		WHERE STUDY_BOARD_NUM = #{num}
+  	</update>
+  	
+  	<delete id="deleteFileAll" parameterType="int">
+  		DELETE FROM STUDY_FILE
+  		WHERE STUDY_BOARD_NUM = #{num}
+  	</delete>
+  </mapper>

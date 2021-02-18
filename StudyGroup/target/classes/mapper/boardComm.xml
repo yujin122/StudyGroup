@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTO Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	
+<mapper namespace="com.spring.model.Board_commDAO">
+	
+	<!-- 댓글 전체 목록 -->
+	<select id="replyList" parameterType="hashMap" resultType="com.study.model.Board_commDTO">
+		<!--
+		<![CDATA[
+		select * from board_comm where board_no = #{board_no} order by bcomm_group desc, bcomm_step
+		]]>
+		-->
+		<![CDATA[
+		select * from (select b.*, row_number() 
+		over(order by bcomm_group desc, bcomm_step) rnum from board_comm b where board_no = #{board_no}) 
+		where rnum <= (#{count}*10)
+		]]>
+	</select>
+	
+	<!--첫 댓글 쓰기 -->
+	<insert id="writeFirst" parameterType="hashMap">
+		<![CDATA[
+		insert into board_comm values(1, #{board_no}, #{bcomm_cont}, #{bcomm_writer}, sysdate, 1 ,0, 0, #{bcomm_nickname})
+		]]>
+	</insert>
+	
+	
+	<!-- 댓글 쓰기 -->
+	<insert id="writeReply" parameterType="hashMap">
+		<![CDATA[
+		insert into board_comm values((select max(bcomm_no) from board_comm)+1, #{board_no}, #{bcomm_cont}, #{bcomm_writer}, sysdate, (select max(bcomm_no) from board_comm)+1 ,0, 0, #{bcomm_nickname})
+		]]>
+	</insert>
+	
+	<!-- 댓글 삭제 -->
+	<delete id="deleteReply" parameterType="int">
+		<![CDATA[
+		delete board_comm where bcomm_no = #{bcomm_no}
+		]]>
+	</delete>
+	
+	<!-- 댓글 수정 -->
+	<update id="editReply" parameterType="hashMap">
+		<![CDATA[
+		update board_comm set bcomm_cont = #{edit_cont} where bcomm_no = #{bcomm_no}
+		]]>
+	</update>
+	
+	<!-- 대댓시 step 증가 -->
+	<update id="updateStep">
+		<![CDATA[
+		update board_comm set bcomm_step = bcomm_step +1 where bcomm_group = (select bcomm_group from board_comm where bcomm_no = #{bcomm_no}) and bcomm_step > (select bcomm_step from board_comm where bcomm_no = #{bcomm_no}) 
+		]]>
+	</update>
+	
+	<!-- 대댓 쓰기-->
+	<insert id="rrepReply" parameterType="hashMap">
+		<![CDATA[
+		insert into board_comm values((select max(bcomm_no) from board_comm)+1, #{board_no}, #{rrep_cont}, #{bcomm_writer}, sysdate, (select bcomm_group from board_comm where bcomm_no =#{bcomm_no}), (select bcomm_step from board_comm where bcomm_no =#{bcomm_no})+1 , (select bcomm_indent from board_comm where bcomm_no =#{bcomm_no})+1, #{bcomm_nickname} ) 
+		]]>
+	</insert>
+	
+	<!-- 댓글 갯수 -->
+	<select id="countReply" parameterType="int" resultType="int">
+		<![CDATA[
+		select count(*) from board_comm where board_no = #{board_no}
+		]]>
+	</select>
+	
+	<!-- 데이터 갯수 -->
+	<select id="countBcomm" resultType="int">
+		<![CDATA[
+		select count(*) from board_comm
+		]]>
+	</select>
+	
+</mapper>

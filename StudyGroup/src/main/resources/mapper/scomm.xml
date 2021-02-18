@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.study.model.ScommDAO">
+
+	<select id="scomm_list" resultType="com.study.model.ScommDTO">
+		<![CDATA[
+		select sc.*, mem.mem_name from sboard_comm sc join member mem on sc.scomm_writer = mem.mem_id
+		where sboard_num = #{sboard_num} order by scomm_num desc
+		]]>
+	</select>
+	
+	<insert id="scomm_write" parameterType="com.study.model.ScommDTO">
+		<![CDATA[
+		insert into sboard_comm (scomm_num, sboard_num, scomm_cont, scomm_writer, scomm_regdate) values(sboard_comm_seq.nextval, #{sboard_num}, #{scomm_cont}, #{scomm_writer}, sysdate)
+		]]>
+	</insert>
+	
+	<delete id="scomm_delete" parameterType="com.study.model.ScommDTO">
+		<![CDATA[
+		delete sboard_comm where scomm_num = #{scomm_num}
+		]]>
+	</delete>
+	
+	<select id="scomm_select" resultType="com.study.model.ScommDTO">
+		<![CDATA[
+		select sboard_num, scomm_num, scomm_cont, scomm_writer, scomm_regdate from sboard_comm where scomm_num = #{scomm_num}
+		]]>
+	</select>
+	
+	<delete id="study_comm" parameterType="int">
+		delete from sboard_comm
+		where sboard_num in (select sboard_num from study_board where study_num = #{study_num})
+	</delete>
+	
+	<delete id="deleteBoard" parameterType="int">
+		delete from sboard_comm
+		where sboard_num = #{sboard_num}
+	</delete>
+	
+	<update id="update" parameterType="com.study.model.ScommDTO">
+		<![CDATA[
+		update sboard_comm set scomm_cont = #{scomm_cont} where scomm_num = #{scomm_num}
+		]]>
+	</update>
+</mapper>

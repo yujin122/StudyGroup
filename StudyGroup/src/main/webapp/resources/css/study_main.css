@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+#content h1 a {text-decoration: none; color: black;}
+#option_box {width: 100%; margin: 50px 0 20px 0;}
+#option_box label, #option_box select {vertical-align: middle;}
+#option_box label {text-align: center; font-weight: bold; margin: 5px; font-size: 18px;}
+#option_box select {height: 30px; margin: 0 10px; border: 2px solid #FF5A5A; border-radius: 10px; font-size: 14px;}
+#option_box select:focus {outline: none}
+#mento {width: 80px}
+#cate {width: 160px;}
+#option_box button{float: right; height: 30px; width: 10%; margin-right: 10px;}
+#item_list tr td {width: 25%;} 
+#item_list table{border: 1px solid lightgray; border-radius: 5px; width: 23%; padding: 10px 5px; display: inline-block; margin: 7px;}
+#item_list table:hover {cursor: pointer;}
+#item_list table tr:nth-child(1) td:nth-child(1) {width: 1%;}
+#item_list table tr:nth-child(1) td:nth-child(1) img{width: 100px; height: 100px;}
+#item_list table tr:nth-child(1) td:nth-child(2) {height: 25px;}
+#item_list table tr:nth-child(1) td:nth-child(2) img {width: 25px; height: 25px;}
+#item_list table tr:nth-child(2) td:nth-child(1) {font-weight: bold; vertical-align: top;}  
+#item_list table tr:nth-child(4) td:nth-child(1) {font-size: 15px; height: 75px;}
+#item_list table tr:nth-child(5) td:nth-child(1) {font-size: 13px; color: #6575e7; height: 75px;}
+#item_list table tr:nth-child(6) td:nth-child(1) {font-size: 12px; color: #7a7a7a; height: 30px;}
+#paging_box {width: 100%; text-align: center; padding: 20px;}
+#paging_box a {text-decoration: none;}
+
+#study_form {width: 70%; border: 1px solid lightgray; border-radius: 5px; padding: 0 20px 20px 20px; margin-top: 50px;}
+#study_form table {width: 100%; text-align: left;}
+#study_form table tr {padding: 5px;}
+#study_form table tr th {font-size: 17px; padding-top: 20px;}
+#study_form table tr th span {color: #FF5A5A}
+#study_form table tr td {padding: 5px 0;}
+#study_form table tr td input[type=text] {width: 90%; height: 45px; border-radius: 5px; border: 1px solid lightgray} 
+#study_form table tr td input[type=text]:focus {outline-color: #FF5A5A}
+#study_form table tr td p {font-size: 13px; margin: 3px 0;}
+#study_form table tr td select {width: 20%; height: 35px; border: 1px solid lightgray; border-radius: 5px;}
+#study_form table tr td textarea {width: 90%; height: 150px;  resize: none; border: 1px solid lightgray; padding: 10px; border-radius: 5px;}
+#study_form table tr td input[type=date]:focus, #study_form table tr td input[type=number]:focus, #study_form table tr td select:focus, #study_form table tr td textarea:focus {outline-color: #FF5A5A}
+#study_form table tr td input[type=number] {width: 12%; border-radius: 5px; border: 1px solid lightgray} 
+#study_form table tr td input[type=radio] {margin: 5px}
+#study_frm_btn {text-align: center; padding: 50px 0 20px 0;}
+#study_frm_btn input[type=submit], #study_frm_btn input[type=button]{width: 80%; height: 50px; margin: 10px 0;} 
+#study_frm_btn input[type=submit]:hover, #study_frm_btn input[type=button]:hover{cursor: pointer;} 
+#name_limit, #short_limit, #hash_limit {font-size: 14px; color: blue; float: right; margin-right: 10%;}
+
+#back_img {width: 25px; height: 25px; margin-top: 40px; margin-right: 20px}
+#back_img:hover {cursor:pointer;}
+#cont_cate {margin-top: 40px; display: inline-block;} 
+#study_cont {width: 60%; border: 1px solid lightgray; border-radius: 5px; padding: 10px 15px; margin: 20px 0;}
+#study_cont_tb {width: 100%; text-align: left; padding: 10px;}
+#study_cont_tb tr td {padding: 10px;}
+#study_cont_tb tr:nth-child(1) td:nth-child(1) {width: 40%;}
+#study_cont_tb tr:nth-child(1) td:nth-child(2) img{width: 40px; height: 40px;}
+#study_cont_tb tr:nth-child(1) td:nth-child(2), #study_cont_tb tr:nth-child(2) td:nth-child(1), #study_cont_tb tr:nth-child(3) td:nth-child(1) {vertical-align: top;}
+#study_cont_tb tr:nth-child(1) td:nth-child(2) {height: 50px;}
+#study_cont_tb tr:nth-child(1) td:nth-child(1) img {width: 95%; height: 270px;}
+#study_cont_tb tr:nth-child(2) td:nth-child(1) {font-size: 20px; font-weight: bold; height: 100px;}
+#study_cont_tb tr:nth-child(3) td:nth-child(1) {font-size: 15px; color: #6575e7; height: 70px;}
+#study_cont_tb tr:nth-child(4) td:nth-child(1) img {width: 50px; height:50px; border-radius: 50px; vertical-align: middle;}
+#study_cont_tb tr:nth-child(4) td:nth-child(1) span {padding-left:10px; vertical-align: middle;}
+#study_info tr:nth-child(1) td:nth-child(1), #study_info tr:nth-child(3) td:nth-child(1) {width: 20%;}
+#study_info tr:nth-child(1) td:nth-child(1) img, #study_info tr:nth-child(3) td:nth-child(1) img {width: 70px; height: 70px; margin-bottom: 20px;}
+#study_info tr td {padding: 0; margin:0;}
+#study_info tr:nth-child(1) td:nth-child(2), #study_info tr:nth-child(3) td:nth-child(2) {height: 10px; padding-left: 10px; font-size: 15px; color:gray; vertical-align: middle;} 
+#study_info tr:nth-child(2) td:nth-child(1), #study_info tr:nth-child(4) td:nth-child(1) {height: 10px; padding-left: 10px; font-size: 16px; font-weight: normal; vertical-align: middle; padding-bottom: 20px;} 
+#study_info tr:nth-child(2), #study_info tr:nth-child(4) {margin: 5px;}
+#study_cont_tb tr:nth-child(8) td:nth-child(1) {padding: 15px;}
+#study_cont_btn {width: 100%; text-align: center; padding: 40px 0 20px 0;}
+#study_cont_btn button {width: 80%; height: 60px;}
+
